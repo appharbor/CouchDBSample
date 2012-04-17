@@ -32,7 +32,7 @@ namespace HammockTest
 
 		protected void Application_Start()
 		{
-			ServicePointManager.CertificatePolicy = new NumskullCertificatePolicy();
+			//ServicePointManager.CertificatePolicy = new NumskullCertificatePolicy();
 			AreaRegistration.RegisterAllAreas();
 
 			RegisterGlobalFilters(GlobalFilters.Filters);
