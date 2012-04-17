@@ -1,0 +1,20 @@
+﻿@model IEnumerable<HammockTest.Models.Thingy>
+
+@{
+	ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<ul>
+	@foreach (var thingy in Model)
+	{
+		<li>@thingy.Name</li>
+	}
+</ul>
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+	<input type="text" name="Name" />
+	<input type="submit" value="Submit" />
+}
