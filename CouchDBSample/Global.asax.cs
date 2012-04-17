@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace HammockTest
+namespace CouchDBSample
 {
 	public class MvcApplication : System.Web.HttpApplication
 	{

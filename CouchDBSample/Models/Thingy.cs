@@ -1,5 +1,5 @@
 ﻿
-namespace HammockTest.Models
+namespace CouchDBSample.Models
 {
 	public class Thingy
 	{

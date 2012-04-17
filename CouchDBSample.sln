@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HammockTest", "HammockTest\HammockTest.csproj", "{E85ED796-FB54-40C0-8101-3675BAC384C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CouchDBSample", "CouchDBSample\CouchDBSample.csproj", "{E85ED796-FB54-40C0-8101-3675BAC384C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

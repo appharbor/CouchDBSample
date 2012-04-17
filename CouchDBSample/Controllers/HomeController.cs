@@ -2,10 +2,10 @@
 using System.Configuration;
 using System.Linq;
 using System.Web.Mvc;
-using HammockTest.Models;
+using CouchDBSample.Models;
 using RedBranch.Hammock;
 
-namespace HammockTest.Controllers
+namespace CouchDBSample.Controllers
 {
 	public class HomeController : Controller
 	{
