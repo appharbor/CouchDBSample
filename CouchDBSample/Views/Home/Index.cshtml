@@ -6,15 +6,20 @@
 
 <h2>Index</h2>
 
+<p>
+	People older than 50:
+</p>
+
 <ul>
 	@foreach (var person in Model)
 	{
-		<li>@person.Name</li>
+		<li>
+			@person.Name
+		</li>
 	}
 </ul>
 
 @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-	<input type="text" name="Name" />
-	<input type="submit" value="Submit" />
+	<input type="submit" value="Add 1000 additional people" />
 }
