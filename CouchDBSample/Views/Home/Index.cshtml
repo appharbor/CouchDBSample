@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CouchDBSample.Models.Thingy>
+﻿@model IEnumerable<CouchDBSample.Models.Person>
 
 @{
 	ViewBag.Title = "Index";
@@ -7,9 +7,9 @@
 <h2>Index</h2>
 
 <ul>
-	@foreach (var thingy in Model)
+	@foreach (var person in Model)
 	{
-		<li>@thingy.Name</li>
+		<li>@person.Name</li>
 	}
 </ul>
 

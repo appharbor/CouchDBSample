@@ -11,15 +11,15 @@ namespace CouchDBSample.Controllers
 	{
 		public ActionResult Index()
 		{
-			var repository = GetRepository<Thingy>();
+			var repository = GetRepository<Person>();
 
 			return View(repository.All());
 		}
 
-		public ActionResult Create(Thingy thingy)
+		public ActionResult Create(Person person)
 		{
-			var repository = GetRepository<Thingy>();
-			repository.Save(thingy);
+			var repository = GetRepository<Person>();
+			repository.Save(person);
 
 			return RedirectToAction("Index");
 		}
