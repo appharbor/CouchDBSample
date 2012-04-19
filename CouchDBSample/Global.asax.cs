@@ -1,6 +1,9 @@
-﻿using System.Net;
+﻿using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
+using RedBranch.Hammock;
+using System.Configuration;
+using System;
 
 namespace CouchDBSample
 {
@@ -28,6 +31,18 @@ namespace CouchDBSample
 
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
+		}
+
+		public static Repository<T> GetRepository<T>() where T : class
+		{
+			const string databaseName = "db";
+			var connection = new Connection(
+				new Uri(ConfigurationManager.AppSettings.Get("CLOUDANT_URL")));
+			if (!connection.ListDatabases().Contains(databaseName))
+			{
+				connection.CreateDatabase(databaseName);
+			}
+			return new Repository<T>(connection.CreateSession(databaseName));
 		}
 	}
 }

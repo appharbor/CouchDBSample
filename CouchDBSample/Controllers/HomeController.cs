@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
@@ -12,18 +11,15 @@ namespace CouchDBSample.Controllers
 	{
 		private const int batchCount = 1000;
 		private readonly Random random = new Random((int)DateTime.Now.Ticks);
+		private readonly IRepository<Person> repository = MvcApplication.GetRepository<Person>();
 
 		public ActionResult Index()
 		{
-			var repository = GetRepository<Person>();
-
 			return View(repository.Where(x => x.Age).Ge(50));
 		}
 
 		public ActionResult Create()
 		{
-			var repository = GetRepository<Person>();
-
 			var people = Enumerable.Range(0, batchCount).Select(x => new Person
 			{
 				Age = random.Next(0, 100),
@@ -36,18 +32,6 @@ namespace CouchDBSample.Controllers
 			}
 
 			return RedirectToAction("Index");
-		}
-
-		private Repository<T> GetRepository<T>() where T : class
-		{
-			const string databaseName = "db";
-			var connection = new Connection(
-				new Uri(ConfigurationManager.AppSettings.Get("CLOUDANT_URL")));
-			if (!connection.ListDatabases().Contains(databaseName))
-			{
-				connection.CreateDatabase(databaseName);
-			}
-			return new Repository<T>(connection.CreateSession(databaseName));
 		}
 
 		private string RandomString(int size)
